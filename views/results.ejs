@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+
+        <div id="listLimiter">
+            <div id="resultscontainer">
+                <% if (productArray == null) { %>
+                    <br>
+                    <img class="noResultsImage" src="img/no_results.jpg"/>
+                    <br>
+                <%  } %>
+                
+                <% if (productArray != null) { %>
+                    <table id="productList">
+                    <% for (let i=0; i < productArray.length; i++) { %>
+                        <tr>
+                            <td id="imageCell">
+                                <img class="favoriteIcon" src='img/favorite.png' id ='i' name='<%= productArray[i][0]%>' width='30'>
+                                <a href='<%= productArray[i][3]%>'><img class="image" id="productImage" src='<%= productArray[i][0]%>'/></a>
+                            </td>
+                            <td id="productDetails">
+                                <div id="title"> <%= productArray[i][1]%> </div>
+                                <hr>
+                                Price:&nbsp$<%= productArray[i][2]%>
+                                <br>
+                                ASIN: <%= productArray[i][4]%>
+                                <br>
+                            </td>
+                        </tr>
+                    <% } %>
+                    </table>
+                <%  } %>
+            </div>
+        </div>  
+        <br>
+
+            
+        </main>
+        
+<%- include('partials/footer.ejs') %>
